@@ -16,7 +16,5 @@ class Drop {
         var pos = this.rain.position;
         ellipse(this.rain.position.x, this.rain.position.y, 10)
     }
-    push(drop){
-        this.array.push(drop);
-    }
+    
 }

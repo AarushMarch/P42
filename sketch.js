@@ -5,6 +5,7 @@ var thunder, thunder1,thunder2,thunder3,thunder4;
 var batAnimation,bat;
 var maxDrops = 100;
 var bestMan;
+var drops = []
 
 var engine, world;
 
@@ -36,9 +37,10 @@ function setup(){
     umbrella = new Umbrella(200,500);
 
     //create drops
-    for(var i = 0; i<maxDrops; i++){
-        Drop.push(new Drop(random(0,400), random(0,400)));
-    }
+    if(frameCount%150 === 0) {
+        drops.push(new Drop(random(0,400), random(0,400)))
+    }   
+    
    
     
 }
@@ -46,7 +48,7 @@ function setup(){
 function draw(){
     Engine.update(engine);
     background(0); 
-
+    
     //creating thunder
     rand = Math.round(random(1,4));
     if(frameCount%80===0){
@@ -84,9 +86,9 @@ function draw(){
 
     umbrella.display();
 
-    //display rain drops
     Drop.display();
     Drop.update();
+    
    
 
     drawSprites();
