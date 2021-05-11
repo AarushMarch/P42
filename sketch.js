@@ -37,9 +37,7 @@ function setup(){
     umbrella = new Umbrella(200,500);
 
     //create drops
-    if(frameCount%150 === 0) {
-        drops.push(new Drop(random(0,400), random(0,400)))
-    }   
+    if(frameCount % 150 === 0){ for(var i = 0; i<maxDrops; i++){ drops.push(new Drop(random(0,400), random(0,400))); } }
     
    
     
@@ -70,6 +68,8 @@ function draw(){
     bat= createSprite(Math.round(random(0,400)),Math.round(random(0,400)));
     bat.addAnimation("moving_bat",batAnimation);
     bat.visible = false;
+    drops[i].showDrop();
+    drops[i].updateY()
     if(frameCount % 100 === 0){
        bat.visible = true;
         bat.velocityX = Math.round(random(-4,4));
