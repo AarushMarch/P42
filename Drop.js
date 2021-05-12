@@ -2,19 +2,21 @@ class Drop {
     constructor(x,y){
         var options = {
             friction : 0.1,
-            isStatic: false
+            
         }
-        this.array = {}
-        this.rain = Bodies.circle(x, y, 5, options);
+        
+        this.rain = Bodies.circle(x, y, 3, options);
+        World.add(world, this.rain);
     }
     update(){
         if(this.rain.position.y > height){
-            Matter.body.setPosition(this.rain, {x:random(0,400), y:random(0,400)})
+            Matter.Body.setPosition(this.rain, {x:random(0,400), y:random(0,400)})
         }
     }
     display(){
         var pos = this.rain.position;
-        ellipse(this.rain.position.x, this.rain.position.y, 10)
+        fill("blue")
+        ellipse(this.rain.position.x, this.rain.position.y, 6, 6)
     }
     
 }

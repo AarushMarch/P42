@@ -7,6 +7,7 @@ var maxDrops = 100;
 var bestMan;
 var drops = []
 
+
 var engine, world;
 
 var rand;
@@ -68,8 +69,7 @@ function draw(){
     bat= createSprite(Math.round(random(0,400)),Math.round(random(0,400)));
     bat.addAnimation("moving_bat",batAnimation);
     bat.visible = false;
-    drops[i].showDrop();
-    drops[i].updateY()
+    
     if(frameCount % 100 === 0){
        bat.visible = true;
         bat.velocityX = Math.round(random(-4,4));
@@ -86,9 +86,11 @@ function draw(){
 
     umbrella.display();
 
-    Drop.display();
-    Drop.update();
     
+    for(var i = 0; i<maxDrops;i++ ){
+        drops[i].display();
+        drops[i].update();
+    }
    
 
     drawSprites();
