@@ -16,6 +16,7 @@ class Drop {
     display(){
         var pos = this.rain.position;
         fill("blue")
+        ellipseMode(CENTER)
         ellipse(this.rain.position.x, this.rain.position.y, 6, 6)
     }
     
